@@ -3,7 +3,7 @@ B站上碧蓝航线相关的敏感视频自动举报脚本，搞事的都414
 
 # 使用方法
 ## 环境配置
-1. 前往[Python官网]((https://www.python.org/downloads/windows/))下载`3.10`以上的版本，安装并配置好环境(网上有教程)  
+1. 前往[Python官网](https://www.python.org/downloads/windows/)下载`3.10`以上的版本，安装并配置好环境(网上有教程)  
 2. 配置完成后打开终端，输入`pip install bilibili-api-python -i https://pypi.tuna.tsinghua.edu.cn/simple`并等待安装完成
 3. 点击本页面蓝色的`Code` => `Download ZIP`下载源码并解压
 4. 输入`python main.py`运行
