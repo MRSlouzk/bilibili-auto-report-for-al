@@ -55,9 +55,8 @@ async def main():
         time.sleep(60 * 10)  # 间隔十分钟
 
 if __name__ == '__main__':
-    print("获取方式：https://nemo2011.github.io/bilibili-api/#/get-credential")
-    print("请输入B站Cookie认证字段（特别注意：请勿泄露给他人，否则后果自负）:")
     if os.path.exists("credential.json"):
+        print("检测到已保存的认证信息，将使用已保存的信息进行认证")
         with open("credential.json", "r", encoding="utf-8") as f:
             cot = json.load(f)
         credential.sessdata = cot["sessdata"]
@@ -65,6 +64,8 @@ if __name__ == '__main__':
         credential.buvid3 = cot["buvid3"]
         credential.dedeuserid = cot["dedeuserid"]
     else:
+        print("请输入B站Cookie认证字段（特别注意：请勿泄露给他人，否则后果自负）")
+        print("获取方式：https://nemo2011.github.io/bilibili-api/#/get-credential")
         credential.sessdata = input("SESSDATA:")
         credential.bili_jct = input("bili_jct:")
         credential.buvid3 = input("buvid3:")
