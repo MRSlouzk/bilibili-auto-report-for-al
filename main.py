@@ -10,20 +10,21 @@ credential = Credential(
     ac_time_value=None
     )
 
-async def find_sensitive_videos():
+async def find_sensitive_videos() -> list:
+    """
+    搜索敏感视频
+    """
     vlist = []
 
     all_list = await search_by_type(
         "碧蓝航线",
         SearchObjectType.VIDEO,
         OrderVideo.PUBDATE,
-        )
-    # with open("example/ret.json", "w", encoding="utf-8") as f:
-    #     json.dump(all_list, f, ensure_ascii=False, indent=4)
-
+        )  # 按时间搜索视频
+    
     for video in all_list["result"]:
         for word in banned_words:
-            if word in video["title"] or word in video["description"]:
+            if word in video["title"] or word in video["description"]:  # 检查视频标题与简介是否有违禁词
                 vlist.append(video)
                 break
     
@@ -37,10 +38,12 @@ async def find_sensitive_videos():
     return [video["bvid"] for video in vlist]
 
 async def report_videos(video_list: list):
+    """
+    举报敏感视频
+    """
     for video in video_list:
         v = Video(bvid=video, credential=credential)
-        ret = await v.appeal(VideoAppealReasonType.LEAD_WAR, random.choice(report_reason))
-        print(ret)
+        ret = await v.appeal(VideoAppealReasonType.LEAD_WAR, random.choice(report_reason))  # 举报
 
         time.sleep(3)
     
@@ -49,7 +52,7 @@ async def main():
         vlist = await find_sensitive_videos()
         await report_videos(vlist)
 
-        time.sleep(60 * 10)
+        time.sleep(60 * 10)  # 间隔十分钟
 
 if __name__ == '__main__':
     print("获取方式：https://nemo2011.github.io/bilibili-api/#/get-credential")
