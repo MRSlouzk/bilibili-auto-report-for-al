@@ -3,7 +3,7 @@ from bilibili_api.video import Video, VideoAppealReasonType
 from bilibili_api import Credential
 import asyncio, json, random, time, os
 
-banned_words = ["反和谐", "fhx", "真名", "名字"]
+banned_words = ["反和谐", "fhx", "真名", "名字", "回来"]
 report_reason = ["宣传游戏外挂", "发表不实消息", "发布引战言论", "宣扬游戏漏洞", "恶意使用和传播游戏漏洞"]
 
 credential = Credential(
