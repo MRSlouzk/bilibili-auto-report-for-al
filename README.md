@@ -14,5 +14,10 @@ B站上碧蓝航线相关的敏感视频自动举报脚本，搞事的都414
 1. 首先需要输入cookie以用于鉴权，教程：[get-credential](https://nemo2011.github.io/bilibili-api/#/get-credential)
 2. 输入完成后脚本就可以自动执行了，设定是10min获取一次，可以愉快地挂机了。
 
+# 其他
+如果有兄弟还有新的敏感词欢迎提个`issue`~
+
+感谢[bilibili-api-python](https://github.com/Nemo2011/bilibili-api)项目提供的bilibili接口封装库
+
 # 特别注意
 禁止将本程序用于其他用途，否则后果均由使用者承担
